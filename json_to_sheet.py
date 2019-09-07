@@ -12,7 +12,6 @@ from google.auth.transport.requests import Request
 from spreadsheet_id import SAMPLE_SPREADSHEET_ID
 
 # If modifying these scopes, delete the file token_sheet.pickle.
-# SCOPES = ['https://www.googleapis.com/auth/spreadsheets.readonly']
 SCOPES = ['https://www.googleapis.com/auth/spreadsheets']
 
 # The ID and range of a sample spreadsheet.
@@ -46,27 +45,22 @@ def create_service():
     return service
 
 
-def write_data_sheet(service, dict_msg)
-
-
-# Call the Sheets API
-sheet = service.spreadsheets()
-values = [[value["name"], value["from"], value["body"]]
-          for key, value in dict_msg.items()]
-body = {
-    'values': values
-}
-result = service.spreadsheets().values().update(
-    spreadsheetId=SAMPLE_SPREADSHEET_ID,
-    range=SAMPLE_RANGE_NAME,
-    valueInputOption="USER_ENTERED",
-    body=body
-).execute()
-print('{0} cells updated.'.format(result.get('updatedCells')))
+def write_data_sheet(service, dict_msg):
+    # Call the Sheets API
+    sheet = service.spreadsheets()
+    values = [[value["name"], value["from"], value["body"]]
+              for key, value in dict_msg.items()]
+    body = {'values': values}
+    result = service.spreadsheets().values().update(
+        spreadsheetId=SAMPLE_SPREADSHEET_ID,
+        range=SAMPLE_RANGE_NAME,
+        valueInputOption="USER_ENTERED",
+        body=body
+    ).execute()
+    print('{0} cells updated.'.format(result.get('updatedCells')))
 
 
 if __name__ == '__main__':
-
     with open("dict_msg.json", "r", encoding='utf-8') as f:
         dict_msg = json.load(f)
 
