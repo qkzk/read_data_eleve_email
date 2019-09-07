@@ -26,9 +26,9 @@ un tableur sheet.
 Les API google permettent de manipuler une grande partie des informations
 hébergées sur leurs serveurs. On peut reproduire et automatiser le comportement d'un utilisateur.
 
-Ici on extrait tous les mails dont l'objet répond à un critère, on filtre ceux qui ne correspondent pas.
+Le premier script **gmail_to_json** extrait tous les mails dont l'objet répond à un critère, on filtre ceux qui ne correspondent pas.
 
-**Attention :** ce script lire trop de messages dans le futur.
+**Attention :** ce script lira trop de messages dans le futur.
 
 Ensuite on stocke temporairement les données dans un fichier json.
 
@@ -40,5 +40,5 @@ Le second fichier, **json_to_sheet** dépose simplement les données dans le tab
 
 ## Sources :
 
-[Api Gmail](https://developers.google.com/gmail/api/quickstart/python?authuser=2)
-[API Sheet](https://developers.google.com/sheets/api/quickstart/python?authuser=2)
+* [Api Gmail](https://developers.google.com/gmail/api/quickstart/python?authuser=2)
+* [API Sheet](https://developers.google.com/sheets/api/quickstart/python?authuser=2)
